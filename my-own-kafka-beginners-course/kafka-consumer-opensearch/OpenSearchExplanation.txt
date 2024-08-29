@@ -1,0 +1,9 @@
+Create your first index.
+An index is where data is stored in opensearch. Each index is a collection of JSON documents. If you have a set of raw encyclopedia articles or log lines that you want to add to OpenSearch, you must first convert them to JSON.
+"PUT /my-first-index" - to create an index in opensearch.
+
+Send some JSON documents into the index to be indexed i.e add some data to the index.
+
+
+To get data from OpenSearch. the last part is the ID.
+"GET /wikimedia/_doc/fyYOgYwB7oDSRR_71mHc"
