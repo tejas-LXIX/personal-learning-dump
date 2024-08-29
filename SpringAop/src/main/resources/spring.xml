@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+<aop:aspectj-autoproxy />
+    <!-- we have to use this annotation to tell spring that we have aop in place, and that spring needs to look for aop classes and execute their advices when required..-->
+
+    <bean name="triangle" class="org.tejas.aop.model.Triangle">
+        <property name="name" value="Triangle name"/>
+    </bean>
+    <bean name="circle" class="org.tejas.aop.model.Circle">
+        <property name="name" value="Circle name"/>
+    </bean>
+
+    <bean name="shapeService" class="org.tejas.aop.service.ShapeService">
+        <property name="circle" ref="circle"/>
+        <property name="triangle" ref="triangle"/>
+    </bean>
+
+    <bean name="loggingAspect" class="org.tejas.aop.aspect.LoggingAspect" />
+
+</beans>
